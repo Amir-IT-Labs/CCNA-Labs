@@ -1,0 +1,29 @@
+CCNA Lab – Basic Security Configuration on Router and Switch
+
+This lab demonstrates the configuration of basic security settings on a Cisco router and switch using essential Cisco IOS commands. The purpose is to apply foundational practices that are part of the CCNA curriculum.
+
+Lab Overview
+
+Devices used in this lab:
+- Router: R1
+- Switch: SW1
+- Pc's: 3
+
+Both devices are configured with:
+- Hostnames
+- Enable passwords
+- Enable secrets
+- Password encryption
+- Configuration saving
+
+Commands Used
+
+enable
+configure terminal
+hostname R1 / SW1
+enable password CCNA
+enable secret Cisco
+service password-encryption
+show running-config
+show startup-config
+copy running-config startup-config

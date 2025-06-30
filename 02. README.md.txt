@@ -1,0 +1,103 @@
+Ethernet Cabling Basics – CCNA Lab
+This lab demonstrates the basics of Ethernet and the correct use of cables to connect different network devices.
+
+🧠 What is Ethernet?
+Ethernet is a set of networking standards used in Local Area Networks (LANs). It defines how devices communicate, the type of cables used, and how data is transmitted.
+
+🧵 UTP (Unshielded Twisted Pair) Cables
+Common Ethernet cable made of copper.
+
+Supports full-duplex communication (send and receive at the same time).
+
+Uses RJ45 connectors.
+
+Pin usage:
+
+Pins 1 & 2 – Transmit
+
+Pins 3 & 6 – Receive
+
+Single cable handles both sending and receiving, because it contains multiple twisted pairs inside (each pair used for a different direction).
+
+🔌 Types of Ethernet Cables
+1. Straight-Through Cable
+Used to connect different devices:
+
+PC to Switch
+
+Router to Switch
+
+Pin configuration: 1→1, 2→2, 3→3, 6→6
+
+2. Crossover Cable
+Used to connect similar devices:
+
+Switch to Switch
+
+Router to Router
+
+Pins are crossed:
+
+1↔3, 2↔6
+
+3. Auto-MDI-X
+Many modern routers and switches support Auto-MDI-X.
+
+Automatically adjusts pin configuration—no need to worry about cable type.
+
+⚡ UTP Cable Speed and Distance
+Supports 10 Mbps, 100 Mbps, and 1 Gbps (Gigabit Ethernet).
+
+Gigabit Ethernet uses all 4 wire pairs (pins 1–8).
+
+Maximum cable length: 100 meters
+
+🔭 Fiber Optic Cables Overview
+Fiber optics are used for long-distance, high-speed, and EMI-free communication. They transmit data using light signals instead of electrical signals.
+
+🔌 Ports for Fiber
+SFP (Small Form-Factor Pluggable) ports are used to connect fiber optic cables.
+
+Found on switches, routers, and network equipment.
+
+SFP modules must match the required fiber type (SMF or MMF).
+
+🔄 Fiber Transmission
+Fiber cables use two separate cables (or cores):
+
+One for sending
+
+One for receiving
+
+Unlike UTP, where a single cable carries both directions via different wire pairs, fiber requires two strands to handle bi-directional communication.
+
+🌐 Fiber Types and Differences
+1. Single-Mode Fiber (SMF)
+Core: Narrow (~9 microns)
+
+Light Source: Laser
+
+Distance: 10–40 km or more
+
+Use Case: Long-distance (WAN, ISP)
+
+Cost: Higher
+
+2. Multi-Mode Fiber (MMF)
+Core: Wider (~50–62.5 microns)
+
+Light Source: LED
+
+Distance: 150–600 meters
+
+Use Case: Short/medium distance (data centers, campuses)
+
+Cost: Lower
+
+🔐 Security Note
+UTP cables can leak small signals and are affected by electromagnetic interference (EMI).
+
+Fiber optics are immune to EMI and do not leak signals—making them more secure and reliable for data transmission.
+
+🧪 Lab Purpose
+This lab in Cisco Packet Tracer shows how to use the correct cable type (UTP or Fiber) between different devices. It helps build a clear understanding of device connections, cable types, and physical layer networking.

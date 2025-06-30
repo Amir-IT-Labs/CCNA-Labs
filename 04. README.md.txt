@@ -1,0 +1,66 @@
+🛠️ CCNA Lab: IPv4 Addressing | Router Interface Setup | Inter-Network Connectivity
+
+This lab is designed to practice key networking concepts such as IPv4 addressing, router interface configuration, and enabling communication between different networks. The lab was built using Cisco Packet Tracer.
+
+🔍 Network Topology Overview
+
+PC0 → 10.0.0.1
+
+PC1 → 172.16.0.1
+
+PC3 → 192.168.1.1
+
+Switch and Router Connections:
+
+Switch 0 → Router0 G0/0 ➤ Gateway: 10.255.255.254
+
+Switch 1 → Router0 G0/1 ➤ Gateway: 172.16.255.254
+
+Switch 2 → Router0 G0/2 ➤ Gateway: 192.168.1.254
+
+🧑‍💻 Router Configuration Commands Used:
+enable
+config terminal
+
+interface g0/0
+ description #Switch 0#
+ ip address 10.255.255.254 255.0.0.0
+ no shutdown
+
+interface g0/1
+ description #Switch 1#
+ ip address 172.16.255.254 255.255.0.0
+ no shutdown
+
+interface g0/2
+ description #Switch 2#
+ ip address 192.168.1.254 255.255.255.0
+ no shutdown
+
+exit
+show ip interface brief
+show interface g0/0
+
+📶 Connectivity Test
+
+✅ Successfully pinged PC1 and PC3 from PC0, confirming routing between all networks via Router0.
+
+🧠 Skills Practiced
+
+Static IPv4 address assignment
+
+Subnet mask selection based on IP classes
+
+Router interface configuration and description
+
+Activating interfaces with no shutdown
+
+Verifying interfaces using show ip interface brief
+
+Viewing detailed interface info using show interface g0/0
+
+Connectivity testing using ping
+
+🚀 Summary
+
+This hands-on lab helped reinforce essential CCNA topics. Every successful configuration and ping response brought me closer to becoming a confident network engineer.

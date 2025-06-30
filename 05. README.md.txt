@@ -1,0 +1,115 @@
+# 📘 CCNA Lab: IPv4 Network Configuration with Router and Switches
+
+This lab demonstrates how to configure a basic LAN network using one router, two switches, and four PCs. The objective is to practice IPv4 addressing, interface configuration, description labeling, and applying best practices such as shutting down unused ports.
+
+
+🧱 Topology Overview
+
+Devices Used:
+- 1 Router: R1  
+- 2 Switches: SW1, SW2  
+- 4 PCs: PC1, PC2, PC3, PC4
+
+
+ 🔗 Device Connections
+
+R1 (G0/0) <--> SW1 (G0/1)
+SW1 (G0/2) <--> SW2 (G0/1)
+PC1 & PC2 <--> SW1 (F0/1, F0/2)
+PC3 & PC4 <--> SW2 (F0/1, F0/2)
+
+
+
+ 🌐 IP Addressing and Gateway Configuration
+
+| Device | Interface | IP Address     | Subnet Mask   | Default Gateway   |
+|--------|-----------|----------------|---------------|-------------------|
+| R1     | G0/0      | 10.255.255.254 | 255.0.0.0     | —                 |
+| PC1    | —         | 10.0.0.1       | 255.0.0.0     | 10.255.255.254    |
+| PC2    | —         | 10.0.0.2       | 255.0.0.0     | 10.255.255.254    |
+| PC3    | —         | 10.0.0.3       | 255.0.0.0     | 10.255.255.254    |
+| PC4    | —         | 10.0.0.4       | 255.0.0.0     | 10.255.255.254    |
+
+
+
+ ⚙️ Router R1 Configuration
+
+enable
+configure terminal
+hostname R1
+
+interface g0/0
+description #to switch 1#
+speed 1000
+duplex full
+ip address 10.255.255.254 255.0.0.0
+no shutdown
+exit
+
+interface range g0/1-2
+description #not in use#
+exit
+
+end
+write
+
+⚙️ Switch SW1 Configuration
+
+enable
+configure terminal
+hostname SW1
+
+interface g0/1
+speed 1000
+duplex full
+description #to R1#
+
+interface g0/2
+speed 1000
+duplex full
+description #to switch 2#
+
+do show interface status
+
+interface range f0/1-2
+description #connected to PCs#
+
+interface range f0/3-24
+shutdown
+description #not in use#
+
+do show ip interface brief
+end
+write
+
+⚙️ Switch SW2 Configuration
+
+enable
+configure terminal
+hostname SW2
+
+interface g0/1
+speed 1000
+duplex full
+description #connected to switch 1#
+
+interface range f0/1-2
+description #connected to PCs#
+
+interface range f0/3-24
+description #not in use#
+shutdown
+
+end
+write
+
+✅ Key Learning Objectives
+Interface configuration (speed, duplex, descriptions)
+
+IPv4 addressing and gateway setup
+
+Use of interface range and shutdown on unused ports
+
+Understanding switch-to-switch and switch-to-router connectivity
+
+Verification commands: show interface status, show ip interface brief
